@@ -6,15 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>하루를 슬기롭게 | Haseul</title>
 
+    <script
+      src="https://kit.fontawesome.com/808a41e94e.js"
+      crossorigin="anonymous"
+    ></script>
+
     <!-- link to -->
-    <link rel="stylesheet" href="main.css" />
-    <script defer src="main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script defer type="module" src="main.js"></script>
+
+    <link rel="icon" href="favicon.png" />
   </head>
+
   <body>
-    <h1>sjldkfjieo</h1>
+    <div class="wrap inner">
+      <header class="inner">
+        <div class="logo">
+          <h1></h1>
+          <h2></h2>
+        </div>
+      </header>
 
-    <input type="text" /><button type="button">추가</button>
+      <main class="inner">
+        <div class="form">
+          <form>
+            <input
+              class="add_input"
+              type="text"
+              placeholder="Enter what you need to do!"
+              autofocus
+            />
+            <button class="add_btn" type="button">
+              <i class="fa-solid fa-plus"></i>
+            </button>
+          </form>
 
-    <div class="list"></div>
+          <div class="done">
+            <div class="done_area">
+              <select name="done" id="done">
+                <option value="">ALL</option>
+                <option value="true">DONE</option>
+                <option value="false">UNDONE</option>
+              </select>
+              <button class="done_btn">
+                <i class="fa-solid fa-check"></i>
+              </button>
+            </div>
+
+            <button class="dones-delete-btn">ALL DONE DELETE</button>
+          </div>
+        </div>
+
+        <div class="todo_area">
+          <div class="loader">
+            <div class="ani"></div>
+          </div>
+
+          <div class="list">
+            <!-- todos -->
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="inner">
+      <div class="footer_area">
+        <a href="https://jane-it-story-blog.tistory.com/" target="_blank"
+          >VLOG</a
+        >
+        <a href="https://github.com/Hyeeeein" target="_blank">GitHub</a>
+      </div>
+    </footer>
   </body>
 </html>

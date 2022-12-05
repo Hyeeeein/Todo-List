@@ -1,0 +1,579 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@200&family=Noto+Sans+KR:wght@300;500;700;900&family=Permanent+Marker&display=swap");
+
+/* COMMEN */
+$mainEngFont: "Permanent Marker", cursive;
+$subEngFont: "Montserrat", sans-serif;
+$korFont: "Noto Sans KR", sans-serif;
+$whiteColor: #ffffff;
+$brownColor: #b0a9a0;
+$greenColor: #7f9392;
+$lightGreenColor: #7f93929f;
+
+:root {
+  --main-size: 1000px;
+}
+
+.inner {
+  width: var(--main-size);
+  margin: auto;
+}
+
+// body
+body {
+  background-color: $whiteColor;
+}
+
+.wrap {
+  width: var(--main-size);
+  height: 1000px;
+  background-image: url(../img/note.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+  padding-top: 120px;
+  position: relative;
+
+  &::after {
+    content: "";
+    background: url(../img/Plants_stickers2.png) no-repeat center / contain;
+    width: 250px;
+    height: 400px;
+    position: absolute;
+    bottom: -200px;
+    left: 100px;
+  }
+  &::before {
+    content: "";
+    background: url(../img/Plants_stickers.png) no-repeat center / cover;
+    width: 200px;
+    height: 200px;
+    background-size: 90%;
+    position: absolute;
+    top: 50px;
+    right: 100px;
+  }
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 58px;
+
+  // logo
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80px;
+
+    h1 {
+      padding-right: 5px;
+      margin-bottom: 10px;
+      color: $greenColor;
+      font-family: $mainEngFont;
+      font-size: 55px;
+      animation: blink 0.5s step-end infinite alternate;
+      border-right: 2px solid;
+
+      &.effect--end {
+        border-color: transparent;
+      }
+    }
+    h2 {
+      color: $greenColor;
+      font-family: "Noto Serif KR", serif;
+      font-weight: 200;
+      font-size: 15px;
+      font-weight: 400;
+      animation: blink 0.5s step-end infinite alternate;
+      border-right: 2px solid;
+      padding-right: 2px;
+
+      &.effect--end {
+        border-color: transparent;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+  }
+}
+
+// main
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .form {
+    padding: 30px 20px;
+    width: 550px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: #b0a9a08e;
+      width: 100%;
+      height: 5px;
+      border-radius: 10px;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .add_input {
+        width: 80%;
+        padding: 10px 20px;
+        background-color: transparent;
+        outline: none;
+        border: 2px solid $brownColor;
+        border-radius: 10px;
+        color: $greenColor;
+        font-family: $subEngFont;
+        font-weight: 500;
+        font-size: 15px;
+        vertical-align: top;
+
+        &::placeholder {
+          color: $lightGreenColor;
+          font-family: $subEngFont;
+          font-weight: 500;
+          font-size: 15px;
+        }
+
+        &:focus {
+          outline: 1px solid $brownColor;
+        }
+      }
+
+      .add_btn {
+        padding: 8px 15px;
+        background-color: transparent;
+        outline: none;
+        border: 2px solid $brownColor;
+        border-radius: 10px;
+        color: $greenColor;
+        font-family: $korFont;
+        font-weight: 500;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    .done {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+
+      .done_area {
+        select {
+          padding: 5px;
+          border: 2px solid $brownColor;
+          border-radius: 10px;
+          background-color: transparent;
+          font-family: $subEngFont;
+          font-weight: 800;
+          color: $greenColor;
+          font-size: 14px;
+          outline: none;
+          option {
+            background-color: #eeeadf;
+            border: 2px solid $brownColor;
+          }
+        }
+
+        .done_btn {
+          vertical-align: top;
+          padding: 7px;
+          background-color: transparent;
+          border: 2px solid $brownColor;
+          border-radius: 10px;
+          color: $greenColor;
+          font-size: 14px;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .dones-delete-btn {
+        vertical-align: top;
+        padding: 7px 10px;
+        background-color: transparent;
+        border: 2px solid $brownColor;
+        border-radius: 10px;
+        font-family: $subEngFont;
+        font-weight: 800;
+        color: $greenColor;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+
+  .todo_area {
+    margin-top: 30px;
+    width: 550px;
+
+    // loading
+    .loader {
+      width: 100%;
+      box-sizing: border-box;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      float: left;
+      min-height: 100px;
+      border-radius: 0.3em;
+
+      &.loader--show {
+        display: flex;
+      }
+
+      .ani {
+        margin: 0 auto;
+
+        position: relative;
+        width: 24px;
+        height: 24px;
+        border: 2px solid $greenColor;
+        border-radius: 100%;
+
+        &::before {
+          width: 2px;
+          display: block;
+          position: absolute;
+          left: 11px;
+          top: 2px;
+          height: 10px;
+          background-color: $greenColor;
+          -webkit-animation: anim1 3s linear infinite;
+          animation: anim1 3s linear infinite;
+          content: "";
+          transform-origin: 1px 10px;
+        }
+
+        &::after {
+          width: 2px;
+          display: block;
+          position: absolute;
+          left: 11px;
+          top: 3px;
+          height: 9px;
+          background-color: $greenColor;
+          -webkit-animation: anim1 18s linear infinite;
+          animation: anim1 18s linear infinite;
+          content: "";
+          transform-origin: 1px 9px;
+        }
+
+        @keyframes anim1 {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+
+    // todo list
+    .list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+
+      .todos {
+        width: 100%;
+
+        .todo {
+          width: 100%;
+          margin-bottom: 20px;
+          display: flex;
+          justify-content: space-between;
+
+          &:hover .btns {
+            visibility: visible;
+            opacity: 1;
+          }
+
+          label {
+            position: relative;
+            vertical-align: middle;
+
+            .check {
+              display: none;
+            }
+            input[type="checkbox"] + .check_img {
+              background-color: #7f93925d;
+              mask: url(../img/check.svg) no-repeat center / contain;
+              display: inline-block;
+              width: 35px;
+              height: 35px;
+              cursor: pointer;
+              vertical-align: middle;
+              transition: 0.5s;
+            }
+            input[type="checkbox"]:checked + .check_img {
+              background-color: $greenColor;
+            }
+            .title {
+              color: $greenColor;
+              font-family: $korFont;
+              font-size: 20px;
+              margin-left: 10px;
+              vertical-align: middle;
+              transition: 0.5s;
+
+              &.todo--done {
+                text-decoration: line-through;
+                color: $lightGreenColor;
+              }
+            }
+            .amend_input {
+              position: absolute;
+              left: 50px;
+              width: 0;
+              padding: 7px 10px;
+              opacity: 0;
+
+              background-color: #eeeadf;
+              border: 2px solid transparent;
+              outline: none;
+              color: $greenColor;
+              font-family: $subEngFont;
+              font-weight: 500;
+              font-size: 15px;
+              vertical-align: middle;
+              outline: none;
+              border-radius: 10px;
+
+              transition: 0.5s;
+
+              &::placeholder {
+                color: $lightGreenColor;
+                font-family: $subEngFont;
+                font-weight: 500;
+                font-size: 15px;
+              }
+
+              &.input--show {
+                opacity: 1;
+                width: 300px;
+                border: 2px solid $brownColor;
+              }
+            }
+          }
+
+          .btns {
+            display: inline-block;
+            vertical-align: middle;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.5s;
+
+            .amend_btn {
+              padding: 5px 8px;
+              background-color: transparent;
+              outline: none;
+              border: 2px solid $brownColor;
+              border-radius: 20px;
+              color: $greenColor;
+              font-size: 18px;
+              cursor: pointer;
+              transition: 0.3s;
+
+              &:hover {
+                transform: scale(1.05);
+              }
+            }
+            .amend_close-btn {
+              display: none;
+              padding: 5px 10px;
+              background-color: transparent;
+              outline: none;
+              border: 2px solid $brownColor;
+              border-radius: 20px;
+              color: $greenColor;
+              font-size: 18px;
+              cursor: pointer;
+              transition: 0.3s;
+
+              &:hover {
+                transform: scale(1.05);
+              }
+            }
+            .amend_close-btn.btn--show {
+              display: inline-block;
+            }
+            .delete {
+              padding: 5px 8px;
+              background-color: transparent;
+              outline: none;
+              border: 2px solid $brownColor;
+              border-radius: 20px;
+              color: $greenColor;
+              font-size: 18px;
+              cursor: pointer;
+              transition: 0.3s;
+
+              &:hover {
+                transform: scale(1.05);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 100px 0;
+  .footer_area {
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $lightGreenColor;
+      font-family: $subEngFont;
+      font-weight: 800;
+      display: block;
+      margin-bottom: 5px;
+      transition: 0.5s;
+
+      &:hover {
+        color: darkgreen;
+      }
+    }
+  }
+}
+
+@media (max-width: 1020px) {
+  :root {
+    --main-size: 600px;
+  }
+  .innder {
+    width: 300px;
+  }
+  .wrap {
+    height: 500px;
+    padding-top: 90px;
+  }
+  .wrap::before {
+    width: 100px;
+    height: 100px;
+    right: 90px;
+    top: 30px;
+  }
+  .wrap::after {
+    bottom: -100px;
+    left: 80px;
+    width: 130px;
+    height: 200px;
+  }
+  header {
+    padding: 0;
+  }
+  header .logo h1 {
+    font-size: 30px;
+  }
+  header .logo h2 {
+    font-size: 10px;
+  }
+  main .form {
+    width: fit-content;
+  }
+  main .form form {
+    width: fit-content;
+  }
+  main .form form .add_input {
+    padding-left: 5px;
+    height: 10px;
+    width: auto;
+    &::placeholder {
+      font-size: 10px;
+    }
+  }
+  main .form form .add_btn {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+  main .form .done .done_area select {
+    font-size: 10px;
+  }
+  main .form .done .done_area .done_btn {
+    font-size: 10px;
+  }
+  main .form .done .dones-delete-btn {
+    font-size: 10px;
+    padding: 5px;
+  }
+  main .todo_area {
+    width: 40%;
+    margin-top: 20px;
+  }
+  main .todo_area .list .todos .todo {
+    margin-bottom: 5px;
+  }
+  main .todo_area .list .todos .todo label input[type="checkbox"] + .check_img {
+    width: 20px;
+    height: 20px;
+  }
+  main .todo_area .list .todos .todo label .title {
+    font-size: 15px;
+  }
+  main .todo_area .list .todos .todo label .amend_input {
+    font-size: 10px;
+    padding: 3px 3px 3px 5px;
+    left: 25px;
+
+    &::placeholder {
+      font-size: 10px;
+    }
+  }
+  main .todo_area .list .todos .todo label .amend_input.input--show {
+    width: 110px;
+  }
+  main .todo_area .list .todos .todo .btns .amend_btn {
+    padding: 3px 5px;
+    font-size: 12px;
+  }
+  main .todo_area .list .todos .todo .btns .amend_close-btn {
+    padding: 3px 5px;
+    font-size: 12px;
+  }
+  main .todo_area .list .todos .todo .btns .delete {
+    padding: 3px 5px;
+    font-size: 12px;
+  }
+}
