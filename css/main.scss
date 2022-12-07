@@ -146,7 +146,6 @@ main {
         font-family: $subEngFont;
         font-weight: 500;
         font-size: 15px;
-        vertical-align: top;
 
         &::placeholder {
           color: $lightGreenColor;
@@ -203,7 +202,6 @@ main {
         }
 
         .done_btn {
-          vertical-align: top;
           padding: 7px;
           background-color: transparent;
           border: 2px solid $brownColor;
@@ -220,7 +218,6 @@ main {
       }
 
       .dones-delete-btn {
-        vertical-align: top;
         padding: 7px 10px;
         background-color: transparent;
         border: 2px solid $brownColor;
@@ -241,7 +238,8 @@ main {
 
   .todo_area {
     margin-top: 30px;
-    width: 550px;
+    width: 570px;
+    height: 80%;
 
     // loading
     .loader {
@@ -312,21 +310,52 @@ main {
 
       .todos {
         width: 100%;
+        height: 500px;
+        padding-top: 5px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        &:hover::-webkit-scrollbar-thumb {
+          background-color: $brownColor;
+        }
+
+        /* 스크롤바 설정 */
+        &::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        /* 스크롤바 막대 설정 */
+        &::-webkit-scrollbar-thumb {
+          background-color: transparent;
+          border-radius: 25px;
+        }
+
+        /* 스크롤바 뒷 배경 설정 */
+        &::-webkit-scrollbar-track {
+          background-color: transparent;
+          border-radius: 25px;
+        }
 
         .todo {
           width: 100%;
           margin-bottom: 20px;
           display: flex;
           justify-content: space-between;
+          flex-wrap: nowrap;
 
           &:hover .btns {
-            visibility: visible;
-            opacity: 1;
+            // visibility: visible;
+            // opacity: 1;
+            display: inline-block;
           }
 
           label {
             position: relative;
-            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            padding-right: 10px;
 
             .check {
               display: none;
@@ -338,32 +367,63 @@ main {
               width: 35px;
               height: 35px;
               cursor: pointer;
-              vertical-align: middle;
               transition: 0.5s;
+              flex-shrink: 0;
             }
             input[type="checkbox"]:checked + .check_img {
               background-color: $greenColor;
             }
             .title {
+              width: 100%;
+              display: block;
               color: $greenColor;
               font-family: $korFont;
               font-size: 20px;
               margin-left: 10px;
-              vertical-align: middle;
               transition: 0.5s;
+              overflow-x: scroll;
+              overflow-y: hidden;
+              white-space: nowrap;
+              opacity: 1;
+              transition: 0.3s;
+              padding-bottom: 1px;
+
+              &:hover::-webkit-scrollbar-thumb {
+                background-color: $brownColor;
+              }
+
+              /* 스크롤바 설정 */
+              &::-webkit-scrollbar {
+                height: 3px;
+              }
+
+              /* 스크롤바 막대 설정 */
+              &::-webkit-scrollbar-thumb {
+                background-color: transparent;
+                border-radius: 25px;
+              }
+
+              /* 스크롤바 뒷 배경 설정 */
+              &::-webkit-scrollbar-track {
+                background-color: transparent;
+                border-radius: 25px;
+              }
 
               &.todo--done {
                 text-decoration: line-through;
                 color: $lightGreenColor;
               }
+
+              &.title--none {
+                opacity: 0;
+              }
             }
             .amend_input {
               position: absolute;
-              left: 50px;
+              left: 45px;
               width: 0;
-              padding: 7px 10px;
+              padding: 6px 10px;
               opacity: 0;
-
               background-color: #eeeadf;
               border: 2px solid transparent;
               outline: none;
@@ -371,7 +431,6 @@ main {
               font-family: $subEngFont;
               font-weight: 500;
               font-size: 15px;
-              vertical-align: middle;
               outline: none;
               border-radius: 10px;
 
@@ -393,11 +452,9 @@ main {
           }
 
           .btns {
-            display: inline-block;
-            vertical-align: middle;
-            visibility: hidden;
-            opacity: 0;
-            transition: 0.5s;
+            display: none;
+            padding-right: 5px;
+            flex-shrink: 0;
 
             .amend_btn {
               padding: 5px 8px;
@@ -539,8 +596,11 @@ footer {
     padding: 5px;
   }
   main .todo_area {
-    width: 40%;
+    width: 45%;
     margin-top: 20px;
+  }
+  main .todo_area .list .todos {
+    height: 200px;
   }
   main .todo_area .list .todos .todo {
     margin-bottom: 5px;
@@ -554,7 +614,7 @@ footer {
   }
   main .todo_area .list .todos .todo label .amend_input {
     font-size: 10px;
-    padding: 3px 3px 3px 5px;
+    padding: 1px 3px 1px 5px;
     left: 25px;
 
     &::placeholder {
@@ -565,15 +625,15 @@ footer {
     width: 110px;
   }
   main .todo_area .list .todos .todo .btns .amend_btn {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .amend_close-btn {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .delete {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
 }

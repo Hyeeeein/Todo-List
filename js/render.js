@@ -53,7 +53,6 @@ export default async function renderTodo(todos, check) {
       checkEl.checked = false;
       titleEl.classList.remove("todo--done");
     }
-    $lightGreenColor:;
 
     // ⭕❌
     if (check === "true" && !checkEl.checked) {
@@ -117,16 +116,19 @@ export default async function renderTodo(todos, check) {
         let inputVal = e.target.value;
 
         for (let i = 0; i < todoEls.length; i++) {
+          const checkEl = todoEls[i].children[0].children[0];
+          const titleEl = todoEls[i].children[0].children[2];
+          const inputEl = todoEls[i].children[0].children[3];
+          const amendCloseBtn = todoEls[i].children[1].children[1];
+
           if (e.target.dataset.id === todoEls[i].dataset.id) {
-            await getUpdateTodo(
-              e.target.dataset.id,
-              inputVal,
-              todoEls[i].children[0].children[0].checked
-            );
-            todoEls[i].children[0].children[2].textContent = inputVal;
+            await getUpdateTodo(e.target.dataset.id, inputVal, checkEl.checked);
+            titleEl.textContent = inputVal;
           }
           e.target.value = "";
-          todoEls[i].children[0].children[3].classList.remove("input--show");
+          inputEl.classList.remove("input--show");
+          amendCloseBtn.classList.remove("btn--show");
+          titleEl.classList.remove("title--none");
         }
       }
     });
@@ -147,6 +149,7 @@ export default async function renderTodo(todos, check) {
           inputEl.focus();
           closeEl.classList.add("btn--show");
           amendCloseBtn.classList.add("btn--show");
+          titleEl.classList.add("title--none");
 
           // 수정한 뒤 버튼을 다시 클릭해도 title 수정
           let inputVal = inputEl.value;
@@ -156,6 +159,7 @@ export default async function renderTodo(todos, check) {
             inputEl.classList.remove("input--show");
             closeEl.classList.remove("btn--show");
             amendCloseBtn.classList.remove("btn--show");
+            titleEl.classList.remove("title--none");
 
             inputEl.value = "";
           }
@@ -174,9 +178,11 @@ export default async function renderTodo(todos, check) {
     el.addEventListener("click", () => {
       for (let i = 0; i < todoEls.length; i++) {
         if (el.dataset.id === todoEls[i].dataset.id) {
+          const titleEl = todoEls[i].children[0].children[2];
           const inputEl = todoEls[i].children[0].children[3];
           const closeEl = todoEls[i].children[1].children[2];
 
+          titleEl.classList.remove("title--none");
           inputEl.classList.remove("input--show");
           closeEl.classList.remove("btn--show");
           el.classList.remove("btn--show");

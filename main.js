@@ -51,7 +51,8 @@ listEl.innerHTML = "";
   // 적은 것 바로 추가
   inputEl.addEventListener("keydown", async (e) => {
     let inputVal = e.target.value;
-    if (e.key === "Enter" && inputVal !== "") {
+
+    if (e.key === "Enter" && inputVal !== "" && !e.isComposing) {
       e.preventDefault();
       listEl.innerHTML = "";
       loaderEl.classList.add("loader--show");

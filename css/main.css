@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Serif+KR:wght@200&family=Noto+Sans+KR:wght@300;500;700;900&family=Permanent+Marker&display=swap");
 /* COMMEN */
 :root {
@@ -134,7 +135,6 @@ main .form form .add_input {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 15px;
-  vertical-align: top;
 }
 main .form form .add_input::-moz-placeholder {
   color: rgba(127, 147, 146, 0.6235294118);
@@ -195,7 +195,6 @@ main .form .done .done_area select option {
   border: 2px solid #b0a9a0;
 }
 main .form .done .done_area .done_btn {
-  vertical-align: top;
   padding: 7px;
   background-color: transparent;
   border: 2px solid #b0a9a0;
@@ -209,7 +208,6 @@ main .form .done .done_area .done_btn:hover {
   transform: scale(1.05);
 }
 main .form .done .dones-delete-btn {
-  vertical-align: top;
   padding: 7px 10px;
   background-color: transparent;
   border: 2px solid #b0a9a0;
@@ -226,7 +224,8 @@ main .form .done .dones-delete-btn:hover {
 }
 main .todo_area {
   margin-top: 30px;
-  width: 550px;
+  width: 570px;
+  height: 80%;
 }
 main .todo_area .loader {
   width: 100%;
@@ -293,20 +292,45 @@ main .todo_area .list {
 }
 main .todo_area .list .todos {
   width: 100%;
+  height: 500px;
+  padding-top: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  /* 스크롤바 설정 */
+  /* 스크롤바 막대 설정 */
+  /* 스크롤바 뒷 배경 설정 */
+}
+main .todo_area .list .todos:hover::-webkit-scrollbar-thumb {
+  background-color: #b0a9a0;
+}
+main .todo_area .list .todos::-webkit-scrollbar {
+  width: 6px;
+}
+main .todo_area .list .todos::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 25px;
+}
+main .todo_area .list .todos::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 25px;
 }
 main .todo_area .list .todos .todo {
   width: 100%;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: nowrap;
 }
 main .todo_area .list .todos .todo:hover .btns {
-  visibility: visible;
-  opacity: 1;
+  display: inline-block;
 }
 main .todo_area .list .todos .todo label {
   position: relative;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  padding-right: 10px;
 }
 main .todo_area .list .todos .todo label .check {
   display: none;
@@ -319,29 +343,56 @@ main .todo_area .list .todos .todo label input[type=checkbox] + .check_img {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  vertical-align: middle;
   transition: 0.5s;
+  flex-shrink: 0;
 }
 main .todo_area .list .todos .todo label input[type=checkbox]:checked + .check_img {
   background-color: #7f9392;
 }
 main .todo_area .list .todos .todo label .title {
+  width: 100%;
+  display: block;
   color: #7f9392;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 20px;
   margin-left: 10px;
-  vertical-align: middle;
   transition: 0.5s;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  opacity: 1;
+  transition: 0.3s;
+  padding-bottom: 1px;
+  /* 스크롤바 설정 */
+  /* 스크롤바 막대 설정 */
+  /* 스크롤바 뒷 배경 설정 */
+}
+main .todo_area .list .todos .todo label .title:hover::-webkit-scrollbar-thumb {
+  background-color: #b0a9a0;
+}
+main .todo_area .list .todos .todo label .title::-webkit-scrollbar {
+  height: 3px;
+}
+main .todo_area .list .todos .todo label .title::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 25px;
+}
+main .todo_area .list .todos .todo label .title::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 25px;
 }
 main .todo_area .list .todos .todo label .title.todo--done {
   text-decoration: line-through;
   color: rgba(127, 147, 146, 0.6235294118);
 }
+main .todo_area .list .todos .todo label .title.title--none {
+  opacity: 0;
+}
 main .todo_area .list .todos .todo label .amend_input {
   position: absolute;
-  left: 50px;
+  left: 45px;
   width: 0;
-  padding: 7px 10px;
+  padding: 6px 10px;
   opacity: 0;
   background-color: #eeeadf;
   border: 2px solid transparent;
@@ -350,7 +401,6 @@ main .todo_area .list .todos .todo label .amend_input {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 15px;
-  vertical-align: middle;
   outline: none;
   border-radius: 10px;
   transition: 0.5s;
@@ -379,11 +429,9 @@ main .todo_area .list .todos .todo label .amend_input.input--show {
   border: 2px solid #b0a9a0;
 }
 main .todo_area .list .todos .todo .btns {
-  display: inline-block;
-  vertical-align: middle;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.5s;
+  display: none;
+  padding-right: 5px;
+  flex-shrink: 0;
 }
 main .todo_area .list .todos .todo .btns .amend_btn {
   padding: 5px 8px;
@@ -527,8 +575,11 @@ footer .footer_area a:hover {
     padding: 5px;
   }
   main .todo_area {
-    width: 40%;
+    width: 45%;
     margin-top: 20px;
+  }
+  main .todo_area .list .todos {
+    height: 200px;
   }
   main .todo_area .list .todos .todo {
     margin-bottom: 5px;
@@ -542,7 +593,7 @@ footer .footer_area a:hover {
   }
   main .todo_area .list .todos .todo label .amend_input {
     font-size: 10px;
-    padding: 3px 3px 3px 5px;
+    padding: 1px 3px 1px 5px;
     left: 25px;
   }
   main .todo_area .list .todos .todo label .amend_input::-moz-placeholder {
@@ -558,15 +609,15 @@ footer .footer_area a:hover {
     width: 110px;
   }
   main .todo_area .list .todos .todo .btns .amend_btn {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .amend_close-btn {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .delete {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
 }/*# sourceMappingURL=main.css.map */
