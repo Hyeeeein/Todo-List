@@ -135,7 +135,6 @@ main .form form .add_input {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 15px;
-  vertical-align: top;
 }
 main .form form .add_input::-moz-placeholder {
   color: rgba(127, 147, 146, 0.6235294118);
@@ -196,7 +195,6 @@ main .form .done .done_area select option {
   border: 2px solid #b0a9a0;
 }
 main .form .done .done_area .done_btn {
-  vertical-align: top;
   padding: 7px;
   background-color: transparent;
   border: 2px solid #b0a9a0;
@@ -210,7 +208,6 @@ main .form .done .done_area .done_btn:hover {
   transform: scale(1.05);
 }
 main .form .done .dones-delete-btn {
-  vertical-align: top;
   padding: 7px 10px;
   background-color: transparent;
   border: 2px solid #b0a9a0;
@@ -296,6 +293,7 @@ main .todo_area .list {
 main .todo_area .list .todos {
   width: 100%;
   height: 500px;
+  padding-top: 5px;
   overflow-y: scroll;
   overflow-x: hidden;
   /* 스크롤바 설정 */
@@ -324,8 +322,7 @@ main .todo_area .list .todos .todo {
   flex-wrap: nowrap;
 }
 main .todo_area .list .todos .todo:hover .btns {
-  visibility: visible;
-  opacity: 1;
+  display: inline-block;
 }
 main .todo_area .list .todos .todo label {
   position: relative;
@@ -404,7 +401,6 @@ main .todo_area .list .todos .todo label .amend_input {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 15px;
-  vertical-align: middle;
   outline: none;
   border-radius: 10px;
   transition: 0.5s;
@@ -433,10 +429,7 @@ main .todo_area .list .todos .todo label .amend_input.input--show {
   border: 2px solid #b0a9a0;
 }
 main .todo_area .list .todos .todo .btns {
-  display: inline-block;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.5s;
+  display: none;
   padding-right: 5px;
   flex-shrink: 0;
 }
@@ -616,15 +609,15 @@ footer .footer_area a:hover {
     width: 110px;
   }
   main .todo_area .list .todos .todo .btns .amend_btn {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .amend_close-btn {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .delete {
-    padding: 3px 5px;
+    padding: 1px 3px;
     font-size: 12px;
   }
 }/*# sourceMappingURL=main.css.map */
