@@ -200,21 +200,6 @@ main {
             border: 2px solid $brownColor;
           }
         }
-
-        .done_btn {
-          padding: 7px;
-          background-color: transparent;
-          border: 2px solid $brownColor;
-          border-radius: 10px;
-          color: $greenColor;
-          font-size: 14px;
-          cursor: pointer;
-          transition: 0.3s;
-
-          &:hover {
-            transform: scale(1.05);
-          }
-        }
       }
 
       .dones-delete-btn {
@@ -314,6 +299,7 @@ main {
         padding-top: 5px;
         overflow-y: scroll;
         overflow-x: hidden;
+        z-index: 10;
 
         &:hover::-webkit-scrollbar-thumb {
           background-color: $brownColor;
@@ -338,15 +324,14 @@ main {
 
         .todo {
           width: 100%;
-          margin-bottom: 20px;
+          padding-bottom: 20px;
           display: flex;
           justify-content: space-between;
           flex-wrap: nowrap;
 
           &:hover .btns {
-            // visibility: visible;
-            // opacity: 1;
-            display: inline-block;
+            display: flex;
+            align-items: center;
           }
 
           label {
@@ -456,6 +441,10 @@ main {
             padding-right: 5px;
             flex-shrink: 0;
 
+            button {
+              margin-right: 5px;
+            }
+
             .amend_btn {
               padding: 5px 8px;
               background-color: transparent;
@@ -504,6 +493,14 @@ main {
               &:hover {
                 transform: scale(1.05);
               }
+            }
+
+            .date {
+              display: inline-block;
+              color: $brownColor;
+              font-size: 10px;
+              font-style: italic;
+              letter-spacing: -1px;
             }
           }
         }
@@ -588,9 +585,6 @@ footer {
   main .form .done .done_area select {
     font-size: 10px;
   }
-  main .form .done .done_area .done_btn {
-    font-size: 10px;
-  }
   main .form .done .dones-delete-btn {
     font-size: 10px;
     padding: 5px;
@@ -603,7 +597,7 @@ footer {
     height: 200px;
   }
   main .todo_area .list .todos .todo {
-    margin-bottom: 5px;
+    padding-bottom: 5px;
   }
   main .todo_area .list .todos .todo label input[type="checkbox"] + .check_img {
     width: 20px;
@@ -624,16 +618,22 @@ footer {
   main .todo_area .list .todos .todo label .amend_input.input--show {
     width: 110px;
   }
+  main .todo_area .list .todos .todo .btns button {
+    margin-right: 3px;
+  }
   main .todo_area .list .todos .todo .btns .amend_btn {
     padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .amend_close-btn {
-    padding: 1px 3px;
+    padding: 1px 4px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .delete {
     padding: 1px 3px;
     font-size: 12px;
+  }
+  main .todo_area .list .todos .todo .btns .date {
+    margin-left: -2px;
   }
 }

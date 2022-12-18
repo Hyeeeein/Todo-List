@@ -194,19 +194,6 @@ main .form .done .done_area select option {
   background-color: #eeeadf;
   border: 2px solid #b0a9a0;
 }
-main .form .done .done_area .done_btn {
-  padding: 7px;
-  background-color: transparent;
-  border: 2px solid #b0a9a0;
-  border-radius: 10px;
-  color: #7f9392;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-main .form .done .done_area .done_btn:hover {
-  transform: scale(1.05);
-}
 main .form .done .dones-delete-btn {
   padding: 7px 10px;
   background-color: transparent;
@@ -296,6 +283,7 @@ main .todo_area .list .todos {
   padding-top: 5px;
   overflow-y: scroll;
   overflow-x: hidden;
+  z-index: 10;
   /* 스크롤바 설정 */
   /* 스크롤바 막대 설정 */
   /* 스크롤바 뒷 배경 설정 */
@@ -316,13 +304,14 @@ main .todo_area .list .todos::-webkit-scrollbar-track {
 }
 main .todo_area .list .todos .todo {
   width: 100%;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
 }
 main .todo_area .list .todos .todo:hover .btns {
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 main .todo_area .list .todos .todo label {
   position: relative;
@@ -433,6 +422,9 @@ main .todo_area .list .todos .todo .btns {
   padding-right: 5px;
   flex-shrink: 0;
 }
+main .todo_area .list .todos .todo .btns button {
+  margin-right: 5px;
+}
 main .todo_area .list .todos .todo .btns .amend_btn {
   padding: 5px 8px;
   background-color: transparent;
@@ -478,6 +470,13 @@ main .todo_area .list .todos .todo .btns .delete {
 }
 main .todo_area .list .todos .todo .btns .delete:hover {
   transform: scale(1.05);
+}
+main .todo_area .list .todos .todo .btns .date {
+  display: inline-block;
+  color: #b0a9a0;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: -1px;
 }
 
 footer {
@@ -567,9 +566,6 @@ footer .footer_area a:hover {
   main .form .done .done_area select {
     font-size: 10px;
   }
-  main .form .done .done_area .done_btn {
-    font-size: 10px;
-  }
   main .form .done .dones-delete-btn {
     font-size: 10px;
     padding: 5px;
@@ -582,7 +578,7 @@ footer .footer_area a:hover {
     height: 200px;
   }
   main .todo_area .list .todos .todo {
-    margin-bottom: 5px;
+    padding-bottom: 5px;
   }
   main .todo_area .list .todos .todo label input[type=checkbox] + .check_img {
     width: 20px;
@@ -608,16 +604,22 @@ footer .footer_area a:hover {
   main .todo_area .list .todos .todo label .amend_input.input--show {
     width: 110px;
   }
+  main .todo_area .list .todos .todo .btns button {
+    margin-right: 3px;
+  }
   main .todo_area .list .todos .todo .btns .amend_btn {
     padding: 1px 3px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .amend_close-btn {
-    padding: 1px 3px;
+    padding: 1px 4px;
     font-size: 12px;
   }
   main .todo_area .list .todos .todo .btns .delete {
     padding: 1px 3px;
     font-size: 12px;
+  }
+  main .todo_area .list .todos .todo .btns .date {
+    margin-left: -2px;
   }
 }/*# sourceMappingURL=main.css.map */

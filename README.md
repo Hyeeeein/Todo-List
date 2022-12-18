@@ -123,3 +123,42 @@ const getReadTodo = () => {
 1. github 으로 배포 후 **Error with Permissions-Policy header: Origin trial controlled feature not enabled: 'interest-cohort'.** 기능들은 잘 작동이 되는데 이런 에러가 console 에 출력되었습니다 무슨 에러인지 궁금합니다
 
 <br/>
+
+# 📌 할 일 관리(Todo) 사이트 제작 2차
+
+<br/>
+
+## ✨ 결과물
+
+#### 배포 주소
+
+- https://hyeeeein.github.io/Todo-List/
+
+#### 코드
+
+- https://github.com/Hyeeeein/Todo-List/tree/develop
+
+<br/>
+
+## 📅 작업 기간
+
+- 2022.12.12 ~ 2022.12.18
+
+<br/>
+
+## ✔ 수정한 부분
+
+- 전역으로 관리할 수 있는 store.js, event 가 모여있는 함수 event.js, 기능별로 다른 효과를 주는 함수들을(renderDelete.js, renderUpdate.js) 추가하여 좀 더 용도별로 구분하였습니다.
+- 각 할 일에 hover 하면 최신 수정일이 표시됩니다.
+
+<br/>
+
+## 🙏🏻 피드백을 받고 싶은 부분
+
+- 조회 api 로 정보를 가져온 후 랜더 함수로 랜더링을 하는 것이라 조회 정보의 마지막 값을 가져와 랜더 함수를 부르려고 했더니 'todos is not iterable' 라는 에러가 나왔습니다
+  랜더 함수에서 todos 가 하나가 들어올 때와 여러 개가 들어올 때를 구분해 주어도 되지 않았고 조회한 것 중 가장 최근에 추가한 것만 랜더링되도록 하자니 해당 함수 안에서 수정, 삭제를 또 똑같이 작성해주어야 해서 기존 것보다 비효율적인 것 같아 수정을 하지 못했습니다
+  리액트는 state 값이 변경되는 것을 감지하여 컴포넌트를 랜더링해주는 것으로 아는데 js 로는 해당 기능을 어떻게 구현해야 할지 모르겠습니다
+
+- 멘토님의 1차 피드백 바탕으로 모듈화와 세부적인 수정을 하였으나 수정할 점을 말씀해주시면 감사드리겠습니다!
+
+<br/>

@@ -1,16 +1,19 @@
+const URL = "https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos";
+
+const HEADERS = {
+  "content-type": "application/json",
+  apikey: "FcKdtJs202209",
+  username: "KDT3_KimHyein",
+};
+
 // 추가
-export const getCreateTodo = (title, order) => {
+export const getCreateTodo = (title) => {
   return new Promise((resolve, reject) => {
-    fetch(`https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos`, {
+    fetch(URL, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-        apikey: "FcKdtJs202209",
-        username: "KDT3_KimHyein",
-      },
+      headers: HEADERS,
       body: JSON.stringify({
         title: `${title}`,
-        order: `${order}`,
       }),
     })
       .then((res) => res.json())
@@ -25,17 +28,10 @@ export const getCreateTodo = (title, order) => {
 
 // 조회
 export async function getReadTodo() {
-  const res = await fetch(
-    "https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos",
-    {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        apikey: "FcKdtJs202209",
-        username: "KDT3_KimHyein",
-      },
-    }
-  );
+  const res = await fetch(URL, {
+    method: "GET",
+    headers: HEADERS,
+  });
   const json = await res.json();
   return json;
 }
@@ -43,17 +39,10 @@ export async function getReadTodo() {
 // 삭제
 export const getDeleteTodo = (id) => {
   return new Promise((resolve, reject) => {
-    fetch(
-      `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-          apikey: "FcKdtJs202209",
-          username: "KDT3_KimHyein",
-        },
-      }
-    )
+    fetch(URL + `/${id}`, {
+      method: "DELETE",
+      headers: HEADERS,
+    })
       .then((res) => res.json())
       .then((res) => {
         resolve();
@@ -67,22 +56,14 @@ export const getDeleteTodo = (id) => {
 // 수정
 export const getUpdateTodo = (id, title, done) => {
   return new Promise((resolve, reject) => {
-    fetch(
-      `https://asia-northeast3-heropy-api.cloudfunctions.net/api/todos/${id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-          apikey: "FcKdtJs202209",
-          username: "KDT3_KimHyein",
-        },
-        body: JSON.stringify({
-          title: `${title}`,
-          done: `${done}`,
-          // order: `${order}`,
-        }),
-      }
-    )
+    fetch(URL + `/${id}`, {
+      method: "PUT",
+      headers: HEADERS,
+      body: JSON.stringify({
+        title: `${title}`,
+        done: `${done}`,
+      }),
+    })
       .then((res) => res.json())
       .then((res) => {
         resolve();
